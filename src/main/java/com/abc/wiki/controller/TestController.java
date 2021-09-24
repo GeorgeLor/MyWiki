@@ -1,5 +1,7 @@
 package com.abc.wiki.controller;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,6 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestController {
+
+    // TEST为默认配置值
+//    @Value("${test.hello:TEST}")
+    @Value("${test.hello}")
+    private String testHello;
+
 
     /*
     *
@@ -26,11 +34,11 @@ public class TestController {
 //    @GetMapping
 //    @RequestMapping(value = "/user/1", method = RequestMethod.DELETE)
 
-//    @GetMapping("/hello")
-//    public String hello(){
-//        return "Hello World";
-//
-//    }
+    @GetMapping("/hello")
+    public String hello(){
+        return "Hello World " + testHello ;
+
+    }
 
     @PostMapping("/hello/post")
     public String helloPost(String name){
