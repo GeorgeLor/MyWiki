@@ -1,7 +1,7 @@
 package com.abc.wiki.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 // @RestController 用于返回字符串
 // @Controller 用于返回页面
@@ -26,9 +26,14 @@ public class TestController {
 //    @GetMapping
 //    @RequestMapping(value = "/user/1", method = RequestMethod.DELETE)
 
-    @RequestMapping("/hello")
-    public String hello(){
-        return "Hello World";
+//    @GetMapping("/hello")
+//    public String hello(){
+//        return "Hello World";
+//
+//    }
 
+    @PostMapping("/hello/post")
+    public String helloPost(String name){
+        return "Hello World! Post," + name;
     }
 }
